@@ -1,0 +1,212 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+.header{
+    background: brown;
+    padding: 4px 0;
+    align-items: center;
+}
+.logo{
+    transform: translate(-40%, 0);
+    align-items: center;
+}
+.text-in-a>a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+.text-in-a:hover>a{
+    color: rgb(255, 255, 255);
+}
+.text-in-a:hover {
+    background:rgb(124, 41, 41);
+    border-radius: 4px;
+}
+.nav-right{
+    padding-top: 0.5%;
+}
+.nav-search{
+    border:1px solid black;
+    border-radius: 50px;
+    padding: 7px 10px;
+    background: white;
+    width: 45px;
+    transition: 0.5s;
+    transform: translate(0, 0);
+}
+.center{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+.nav-search:hover > input{
+    width: 240px;
+    margin-left: 6px;
+}
+.nav-search:hover {
+    width: 340px;
+    margin-left: 6px;
+}
+.nav-search input{
+    border: none;
+    background: none;
+    outline: none;
+    width: 0;
+    padding: 0;
+    transition: 0.5s;
+}
+.btn-search{
+    color: black;
+    transition: 0.4s;
+}
+.btn-search :hover{
+    transform: scale(1.3);
+}
+.container{
+    text-align: center;
+}
+.margin-4{
+    margin: 5px 0;
+}
+.nav{
+    height: 100%;
+    margin-left: 40px;
+}
+.nav ul li{
+    display: block;
+    margin: 20px 0;
+}
+.nav ul li a p{
+    margin-top: 15px;
+}
+.nav ul li a{
+    text-decoration: none;
+    color: black;
+    height: 55px;
+    display: flex;
+    align-items: center;
+}
+.nav ul li a:hover{
+    background-color: rgb(192, 192, 192);
+    border-radius: 50px;
+    transform: scale(1.2);
+    transition: 0.3s;
+}
+.row{
+    padding: 0;
+    margin: 0;
+}
+
+/* Cửa sổ phone*/
+.phone{
+    background: rgb(255, 255, 255);
+    width: 200px;
+    min-height: 350px;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 1px 1px 7px black;
+    position: absolute;
+    top: 9%;
+    left: 28%;
+}
+.phone p a{
+    text-decoration: none;
+    color: black;
+}
+.phone p{
+    padding: 5px 10px;
+}
+.phone p:hover{
+    background: rgb(214, 214, 214);
+    border-radius: 9px;
+    transform: scale(1.2);
+    transition: 0.2s;
+    pointer-events: visible;
+}
+.closed{
+    display: none;
+}
+/*Banner*/
+.baner img{
+    margin-top: 10px;
+    max-width: 100%;
+}
+/*produc*/
+.row>a{
+    padding: 20px 20px;
+}
+.row > h2{
+    font-style: italic;
+    color: red;
+} 
+.row > h3{
+    font-size: 20px;
+}
+.produc-sale{
+    margin: 20px 0 !important;
+}
+.price{
+    margin-left: 20px;
+}
+.price>span{
+    font-weight: bold;
+    color: red;
+}
+.price>span1{
+    font-style: italic;
+    text-decoration-line: line-through;
+}
+.img-withd{
+    max-width: 100%;
+    transition: 0.3s;
+}
+.col-custom:hover .img-withd{
+    transform: scale(1.05);
+}
+.row-custom{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 3px;
+}
+.col-custom:hover{
+    border: 1px solid rgb(202, 202, 202);
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px rgb(184, 184, 184);
+}
+.sale{
+    background: red;
+    width: 50px;
+    position: absolute;
+    height: 30px;
+}
+.sale p{
+    font-weight: bold;
+    color: white;
+}
+.price-card{
+    display: flex;
+    justify-content:space-between;
+    padding: 10px 20px;
+    padding-left: 20px;
+    align-items: center;
+}
+.btn-add-card{
+    font-size: 20px;
+    margin-right: 20px;
+    color: black;
+    transition: 0.2s;
+}
+.btn-add-card:hover{
+    transform: scale(1.1);
+    color: red;
+}
+.produc-sale > h3{
+    text-align: left;
+}
+.color-red{
+    color: red;
+    text-align: left;
+    font-style: italic;
+    margin-top: 50px;
+}
