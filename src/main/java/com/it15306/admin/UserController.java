@@ -73,7 +73,7 @@ public class UserController {
 		}
 	}
 	@GetMapping(value = "delete/{id}")
-	private String delete(@PathVariable("id") User entity) {
+	public String delete(@PathVariable("id") User entity) {
 		this.userRepo.delete(entity);
 		return "redirect:/admin/user/";
 	}

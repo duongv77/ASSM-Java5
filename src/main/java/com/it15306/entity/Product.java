@@ -1,6 +1,5 @@
 package com.it15306.entity;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -48,12 +47,7 @@ public class Product {
 	@Column(name = "image")
 	private String image;
 	
-	@OneToMany
-	@JoinColumn(
-			name = "orderdetal_id",
-			nullable = false,
-			referencedColumnName = "id"
-	)
+	@OneToMany(mappedBy = "product")
 	private List<Orderdetail> orderdetal;
 	
 	@ManyToOne

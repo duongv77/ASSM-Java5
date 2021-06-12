@@ -51,8 +51,8 @@
 			    <input type="file" class="form-control" id="image" name="image">
 			</div>
 			<div class="form-group mt-3">
-				<label for="activated">Trạng thái</label>
-				<select name="activated" id="activated" class="form-control" required>
+				<label for="productype">Loại sản phẩm</label>
+				<select name="productype" id="productype" class="form-control" required>
 					<option selected disabled>Choose</option>
 					<option value="1" ${ product.productype.id == 1 ? "selected" : "" }>Điện thoại</option>
 					<option value="2" ${ product.productype.id == 2 ? "selected" : "" }>Máy tính</option>

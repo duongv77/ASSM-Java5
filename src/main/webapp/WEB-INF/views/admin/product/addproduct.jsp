@@ -39,7 +39,18 @@
 			    <input type="file" class="form-control" id="image" name="image">
 			    <small id="photo_error" class="form-text text-danger"></small>
 			</div>
-			<div class="form-group">
+			<div class="form-group mt-3">
+				<label for="productype">Loại sản phẩm</label>
+				<select name="productype" id="productype" class="form-control" required>
+					<option selected disabled>Choose</option>
+					<option value="1">Điện thoại</option>
+					<option value="2">Máy tính</option>
+					<option value="3">Âm thanh</option>
+					<option value="4">Đồng hồ</option>
+					<option value="5">Máy ảnh</option>
+				</select>
+			</div>
+			<div class="form-group mt-4">
 				<button class="btn btn-primary">Submit</button>
 				<button type="reset" class="btn btn-danger">Clear</button>
 			</div>

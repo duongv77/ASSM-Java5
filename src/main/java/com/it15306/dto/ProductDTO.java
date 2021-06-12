@@ -1,8 +1,8 @@
 package com.it15306.dto;
 
-import java.util.Date;
-
 import javax.validation.constraints.NotNull;
+
+import com.it15306.entity.Productype;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,18 +17,20 @@ public class ProductDTO {
 	//@NotNull
 	private Integer id;
 	
-	@NotNull
+	@NotNull(message="Thiếu name")
 	private String name;
 	
-	@NotNull
+	@NotNull(message="Thiếu giá")
 	private Integer price;
 	
-	@NotNull
 	private String createdate;
 	
-	@NotNull
+	@NotNull(message="Thiếu Trajgn thái")
 	private Integer available;
 	
 	//@NotNull
 	private String image;
+	
+	@NotNull(message="Thiếu id productype")
+	private Productype productype;
 }

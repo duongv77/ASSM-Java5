@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Sản phẩm</title>
+<title>QL Order</title>
 <link rel="stylesheet" href="/css/homeuser.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
@@ -14,34 +14,28 @@
 <body>
 	<div class="container">
 		<h2 class="hehehi">
-			Quản lí sản phẩm
+			Quản lí Order
 		</h2>
-		<a class="btn btn-outline-danger" href="${ pageContext.request.contextPath }/admin/product/add">
-			Thêm sản phẩm
+		<a class="btn btn-outline-danger" href="${ pageContext.request.contextPath }/admin/order/add">
+			Thêm order
 		</a>
 		<table class="table">
 			<thead>
 				<tr>
 					<th scope="col">ID</th>
-					<th scope="col">Sản phẩm</th>
-					<th scope="col">Giá</th>
-					<th scope="col">Ngày tạo</th>
-					<th scope="col">Trạng thái</th>
-					<th scope="col">Ảnh</th>
-					<th scope="col">Loại sản phẩm</th>
-					<th colspan="2">Thao tác</th>
+					<th scope="col">User order</th>
+					<th scope="col">Thời gian order</th>
+					<th scope="col">Địa chỉ</th>
+					<th colspan="3">Thao tác</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${ listProduct }" var="listProduct">
+				<c:forEach items="${ listOrder }" var="listOrder">
 					<tr>
-						<th>${ listProduct.id }</th>
-						<td>${ listProduct.name }</td>
-						<td>${ listProduct.price }</td>
-						<td>${ listProduct.createdate }</td>
-						<td>${ listProduct.available }</td>
-						<td>${ listProduct.image }</td>
-						<td>${ listProduct.productype.id }</td>
+						<th>${ listOrder.id }</th>
+						<td>${ listOrder.user.username }</td>
+						<td>${ listOrder.createDate }</td>
+						<td>${ listOrder.address }</td>
 						<td>
 							<a class="icon" href="${ pageContext.request.contextPath }/admin/product/delete/${ listProduct.id }">
 								<i class="fa fa-trash" aria-hidden="true"></i>
@@ -50,6 +44,11 @@
 						<td>
 							<a class="icon" href="${ pageContext.request.contextPath }/admin/product/edit/${ listProduct.id }">
 								<i class="fa fa-pencil" aria-hidden="true"></i>
+							</a>
+						</td>
+						<td>
+							<a class="icon" href="${ pageContext.request.contextPath }/admin/product/edit/${ listProduct.id }">
+								<i class="fa fa-eye" aria-hidden="true"></i>
 							</a>
 						</td>
 					</tr>

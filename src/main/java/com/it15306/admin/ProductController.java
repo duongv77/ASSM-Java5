@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.it15306.dto.ProductDTO;
 import com.it15306.entity.Product;
-import com.it15306.entity.Productype;
 import com.it15306.mapper.ProductMapper;
 import com.it15306.repository.ProductRepository;
 
@@ -38,27 +37,53 @@ public class ProductController {
 		return "admin/product/addproduct";
 	}
 	
-	@GetMapping(value="/edit/{id}")
-	public String edit(@PathVariable("id") Product entity, Model model) {
-		//ProductDTO prdDTO = mapper.convertToDTO(entity);
-		model.addAttribute("product", entity);
-		return "admin/product/editproduct";
-	}
-	
-	@PostMapping(value="update/{id}")
-	public String update(Model model, @Valid Product product, BindingResult result) {
+	@PostMapping(value="/store")
+	public String store(Model model,@Valid ProductDTO productDTO, BindingResult result) {
 		if ( result.hasErrors() ) {
 			List<ObjectError> errors = result.getAllErrors();
-			System.out.println(product.getId());
+			System.out.println(productDTO.getId());
 			System.out.println("true" + errors.get(0).getDefaultMessage());
 
 			model.addAttribute("errors", errors);
-			return "redirect:/admin/product/edit/"+product.getId();
+			return "redirect:/admin/product/add";
 			
 		} else {
-			//Product entity = mapper.convertToEntity(product);
-			this.productRepo.save(product);
+			String time = java.time.LocalDateTime.now()+"";
+			productDTO.setCreatedate(time);
+			Product entity = mapper.convertToEntity(productDTO);
+			this.productRepo.save(entity);
 			return "redirect:/admin/product/";
 		}
+		
+	}
+	
+	@GetMapping(value="/edit/{id}")
+	public String edit(@PathVariable("id") Product entity, Model model) {
+		ProductDTO prdDTO = mapper.convertToDTO(entity);
+		model.addAttribute("product", prdDTO);
+		return "admin/product/editproduct";
+	}
+	
+	@PostMapping(value="/update/{id}")
+	public String update(Model model, @Valid ProductDTO productDTO, BindingResult result) {
+		if ( result.hasErrors() ) {
+			List<ObjectError> errors = result.getAllErrors();
+			System.out.println(productDTO.getId());
+			System.out.println("true" + errors.get(0).getDefaultMessage());
+
+			model.addAttribute("errors", errors);
+			return "redirect:/admin/product/edit/"+productDTO.getId();
+		} else {
+			String time = java.time.LocalDateTime.now()+"";
+			productDTO.setCreatedate(time);
+			Product entity = mapper.convertToEntity(productDTO);
+			this.productRepo.save(entity);
+			return "redirect:/admin/product/";
+		}
+	}
+	@GetMapping(value="/delete/{id}")
+	public String delete(@PathVariable("id") Product entity) {
+		this.productRepo.delete(entity);
+		return "redirect:/admin/product/";
 	}
 }

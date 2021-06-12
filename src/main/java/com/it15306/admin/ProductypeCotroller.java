@@ -63,7 +63,6 @@ public class ProductypeCotroller {
 
 			model.addAttribute("errors", errors);
 			return "redirect:/admin/user/edit/"+productype.getId();
-			
 		} else {
 			Productype entity = mapper.convertToEntity(productype);
 			this.producTypeRepo.save(entity);
