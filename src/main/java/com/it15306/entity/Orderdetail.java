@@ -1,4 +1,7 @@
-package com.idt5306.entity;
+package com.it15306.entity;
+
+
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -6,7 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -16,33 +19,39 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-@Getter
+
 @Setter
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
 @Component
-@Table(name = "oders")
-public class Order {
+@Entity
+@Table(name = "orderdetails")
+public class Orderdetail {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name ="id")
+	@Column(name = "id")
 	private Integer id;
 	
-	@Column(name = "create_date")
-	private String createDate;
+	@Column(name="quantity")
+	private Integer quantity;
 	
-	@Column(name = "address")
-	private String address;
+	@Column(name = "price")
+	private Integer price;
 	
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(
-			name="user_id",
-			nullable = false,
-			referencedColumnName = "id"
-	)
-	private User user;
+		name = "oder_id",
+		nullable = false,
+		referencedColumnName = "id"
+	)			
+	private Order order;
 	
-	@OneToOne(mappedBy = "user")
-	private Orderdetail orderdetail;
+	@OneToMany
+	@JoinColumn(
+				name = "product_id",
+				nullable = false,
+				referencedColumnName = "id"
+			)
+	private List<Product> product;
 }

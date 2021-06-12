@@ -210,3 +210,9 @@ body{
     font-style: italic;
     margin-top: 50px;
 }
+th{
+    color: blanchedalmond;
+}
+.icon{
+    color: black;
+}

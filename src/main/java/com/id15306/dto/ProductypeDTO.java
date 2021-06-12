@@ -1,5 +1,20 @@
 package com.id15306.dto;
 
-public class ProductypeDTO {
+import javax.validation.constraints.NotNull;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class ProductypeDTO {
+	//@NotNull
+	private Integer id;
+	
+	@NotNull
+	private String name;
 }

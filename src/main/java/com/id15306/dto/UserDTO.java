@@ -3,7 +3,6 @@ package com.id15306.dto;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Null;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,6 +14,9 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserDTO {
+	//@NotNull
+	private Integer id;
+	
 	@NotNull
 	@NotBlank
 	private String username;
@@ -24,7 +26,7 @@ public class UserDTO {
 	@Email
 	private String email;
 	
-	@Null
+	//@NotNull
 	private String photo;
 	
 	@NotNull
@@ -33,7 +35,6 @@ public class UserDTO {
 	@NotNull
 	private Integer activated;
 	
-	@NotNull
-	@NotBlank
+	@NotNull(message = "thiếu pw")
 	private String password;
 }

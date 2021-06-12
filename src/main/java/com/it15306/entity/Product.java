@@ -1,6 +1,7 @@
-package com.idt5306.entity;
+package com.it15306.entity;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -38,22 +40,28 @@ public class Product {
 	private Integer price;
 	
 	@Column(name = "create_date")
-	private Date datetime;
+	private String createdate;
 	
 	@Column(name = "available")
-	private Integer availabe;
+	private Integer available;
 	
 	@Column(name = "image")
 	private String image;
 	
-	@ManyToOne
-	private Orderdetail orderdetal;
+	@OneToMany
+	@JoinColumn(
+			name = "orderdetal_id",
+			nullable = false,
+			referencedColumnName = "id"
+	)
+	private List<Orderdetail> orderdetal;
 	
 	@ManyToOne
 	@JoinColumn(
-				name = "producer_id",
-				nullable = false,
-				referencedColumnName = "id"
-			)
-	private Producer producer;
+			name = "productype_id",
+			nullable = false,
+			referencedColumnName = "id"
+	)
+	private Productype productype;
+	
 }

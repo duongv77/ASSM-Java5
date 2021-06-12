@@ -1,4 +1,4 @@
-package com.idt5306.entity;
+package com.it15306.entity;
 
 import java.util.List;
 
@@ -7,8 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -19,31 +17,37 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Setter
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Component
 @Entity
-@Table(name="producers")
-public class Producer {
+@Component
+@Table(name = "users")
+public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Integer id;
 	
-	@Column(name = "name")
-	private String name;
+	@Column(name="username")
+	private String username;
 	
-	@OneToMany
-	private List<Product> produc;
+	@Column(name = "password")
+	private String password;
 	
-	@ManyToOne
-	@JoinColumn(
-			name = "productype_id",
-			nullable = false,
-			referencedColumnName = "id"
-	)
-	private Producer producer;
+	@Column(name = "email")
+	private String email;
 	
+	@Column(name = "photo")
+	private String photo;
+	
+	@Column(name = "activated")
+	private Integer activated;
+	
+	@Column(name = "admin")
+	private Integer admin;
+	
+	@OneToMany(mappedBy = "user")
+	private List<Order> order;
 }

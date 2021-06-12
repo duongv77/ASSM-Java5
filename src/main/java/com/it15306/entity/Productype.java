@@ -1,4 +1,4 @@
-package com.idt5306.entity;
+package com.it15306.entity;
 
 import java.util.List;
 
@@ -34,5 +34,5 @@ public class Productype {
 	private String name;
 	
 	@OneToMany(mappedBy = "productype")
-	private List<Producer> producer;
+	private List<Product> product;
 }
