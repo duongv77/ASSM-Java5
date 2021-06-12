@@ -1,4 +1,6 @@
-package com.id15306.dto;
+package com.it15306.dto;
+
+import java.util.Date;
 
 import javax.validation.constraints.NotNull;
 
@@ -11,10 +13,22 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductypeDTO {
+public class ProductDTO {
 	//@NotNull
 	private Integer id;
 	
 	@NotNull
 	private String name;
+	
+	@NotNull
+	private Integer price;
+	
+	@NotNull
+	private String createdate;
+	
+	@NotNull
+	private Integer available;
+	
+	//@NotNull
+	private String image;
 }

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.id15306.dto.UserDTO;
+import com.it15306.dto.UserDTO;
 import com.it15306.entity.User;
 import com.it15306.libs.HashUtil;
 import com.it15306.mapper.UserMapper;

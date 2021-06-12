@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.id15306.dto.ProductypeDTO;
+import com.it15306.dto.ProductypeDTO;
 import com.it15306.entity.Productype;
 import com.it15306.mapper.ProducTypeMapper;
 import com.it15306.repository.ProductypeRepository;
