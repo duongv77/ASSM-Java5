@@ -37,17 +37,17 @@
 						<td>${ listOrder.createDate }</td>
 						<td>${ listOrder.address }</td>
 						<td>
-							<a class="icon" href="${ pageContext.request.contextPath }/admin/product/delete/${ listProduct.id }">
+							<a class="icon" href="${ pageContext.request.contextPath }/admin/order/delete/${ listOrder.id }">
 								<i class="fa fa-trash" aria-hidden="true"></i>
 							</a>
 						</td>
 						<td>
-							<a class="icon" href="${ pageContext.request.contextPath }/admin/product/edit/${ listProduct.id }">
+							<a class="icon" href="${ pageContext.request.contextPath }/admin/order/edit/${ listOrder.id }">
 								<i class="fa fa-pencil" aria-hidden="true"></i>
 							</a>
 						</td>
 						<td>
-							<a class="icon" href="${ pageContext.request.contextPath }/admin/product/edit/${ listProduct.id }">
+							<a class="icon" href="${ pageContext.request.contextPath }/admin/order/edit/${ listOrder.id }">
 								<i class="fa fa-eye" aria-hidden="true"></i>
 							</a>
 						</td>

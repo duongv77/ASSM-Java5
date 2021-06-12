@@ -44,6 +44,8 @@ public class LoginController {
 			request.getSession().setAttribute("errorMessLogin", "Thông tin tài khoản hoặc mật khẩu không chính xác");
 			return "redirect:/login";
 		}
+		//lưu user đăng nhập vào session
+		request.getSession().setAttribute("userLogin", entity);
 		return "redirect:/admin/user";
 	}
 }

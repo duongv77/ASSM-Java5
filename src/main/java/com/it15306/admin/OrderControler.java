@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.it15306.dto.OrderDTO;
 import com.it15306.entity.Order;
 import com.it15306.mapper.OrderMapper;
 import com.it15306.repository.OrderRepository;
@@ -23,5 +25,12 @@ public class OrderControler {
 		List<Order> listOrder = this.orderRepository.findAll();
 		model.addAttribute("listOrder", listOrder);
 		return "admin/order/orderadmin";
+	}
+	
+	@GetMapping(value="edit/{id}")
+	public String edit(@PathVariable("id") Order entity, Model model) {
+		OrderDTO orderDTO = mapper.convertToDTO(entity);
+		model.addAttribute("orderDTO", orderDTO);
+		return "admin/order/updateorderadmin";
 	}
 }

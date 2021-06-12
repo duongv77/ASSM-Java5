@@ -8,8 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -19,46 +20,35 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Setter
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Component
-@Table(name = "products")
-public class Product {
+@Table(name = "cartdetails")
+public class Cartdetail {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Integer id;
 	
-	@Column(name = "name")
-	private String name;
-	
-	@Column(name = "price")
-	private Integer price;
-	
-	@Column(name = "create_date")
-	private String createdate;
-	
-	@Column(name = "available")
-	private Integer available;
-	
-	@Column(name = "image")
-	private String image;
-	
-	@OneToMany(mappedBy = "product")
-	private List<Orderdetail> orderdetal;
-	
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(
-			name = "productype_id",
+			name = "cart_id",
 			nullable = false,
 			referencedColumnName = "id"
 	)
-	private Productype productype;
+	private Cart cart;
+
+	@Column(name = "create_date")
+	private String createdate;
 	
-	@OneToMany(mappedBy = "product")
-	private List<Cartdetail> cartdetail;
-	
+	@ManyToMany
+	@JoinColumn(
+			name = "product_id",
+			nullable = false,
+			referencedColumnName = "id"
+		)
+	private List<Product> product;
 }
