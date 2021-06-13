@@ -2,6 +2,8 @@ package com.it15306.dto;
 
 import javax.validation.constraints.NotNull;
 
+import com.it15306.entity.Product;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,4 +22,6 @@ public class OrderdetailDTO {
 	
 	@NotNull
 	private Integer price;
+	
+	private Product product;
 }

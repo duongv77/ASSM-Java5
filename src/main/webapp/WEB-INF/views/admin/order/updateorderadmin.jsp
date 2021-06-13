@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%> 
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <!DOCTYPE html>
 <html>
 
@@ -16,6 +17,7 @@
 <body>
     <div class="container">
         <div class="row">
+            <h3>Sửa địa chỉ</h3>
             <form:form modelAttribute="orderDTO" method="POST"
                 action="${ pageContext.request.contextPath }/admin/order/update/${ productype.id }">
 
@@ -27,7 +29,56 @@
                 <a href="" type="submit" class="btn btn-outline-success mt-2"> Lưu địa chỉ</a>
             </form:form>
         </div>
+        <hr>
+        <div class="row">
+            <h3>Sửa sản phẩm</h3>
+            <form:form modelAttribute="orderdetail" method="POST"
+                action="${ pageContext.request.contextPath }/admin/order/update/${ productype.id }">
+                <div class="form-group mt-3 col-7">
+                    <label for="address">Sản phẩm</label>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID sản phẩm</th>
+                                <th scope="col">Sản phẩm</th>
+                                <th scope="col">Giá</th>
+                                <th scope="col">Ảnh</th>
+                                <th scope="col">Loại sản phẩm</th>
+                                <th colspan="2">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach items="${ orderdetail }" var="orderdetail">
+                                <tr>
+                                    <th>${ orderdetail.product.id }</th>
+                                    <td>${ orderdetail.product.name }</td>
+                                    <td>${ orderdetail.product.price }</td>
+                                    <td>${ orderdetail.product.image }</td>
+                                    <td>${ orderdetail.product.productype.id }</td>
+                                    <td>
+                                        <a class="icon"
+                                            href="${ pageContext.request.contextPath }/admin/product/delete/${ listProduct.id }">
+                                            <i class="fa fa-trash" aria-hidden="true"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a class="icon"
+                                            href="${ pageContext.request.contextPath }/admin/product/delete/${ orderdetail.id }">
+                                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                                        </a>
+                                    </td>
+
+                                </tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+            </form:form>
+        </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>
