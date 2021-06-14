@@ -40,6 +40,13 @@
         </div>
     </div>
     <div class="container">
+    <c:if test="${ not empty sessionScope.muathanhcong }">
+				<div class="message-login-error">
+					${ sessionScope.muathanhcong }
+				</div>
+
+				<c:remove var="muathanhcong" scope="session" />
+			</c:if>
         <div class="container-custom">
             <div class="nav">
                 <div class="nav-left">
@@ -59,24 +66,50 @@
                 </thead>
                 <tbody>
                     <c:forEach items="${ listcartdetail }" var="listcartdetail">
-					<tr>
-						<td><img height="30" src="/storage/${ listcartdetail.product.image }" alt=""></td>
-						<td>${ listcartdetail.product.name }</td>
-						<td>${ listcartdetail.product.price }</td>
-						<td>${ listcartdetail.quantity }</td>
-						<td>${ listcartdetail.product.price*listcartdetail.quantity }</td>
-						<td>
-							<a class="icon" href="${ pageContext.request.contextPath }/admin/order/edit/${ listOrder.id }">
-								<i class="fa fa-trash-o" aria-hidden="true"></i>
-							</a>
-						</td>
-					</tr>
-				</c:forEach>
+                        <tr>
+                            <td><img height="30" src="/storage/${ listcartdetail.product.image }" alt=""></td>
+                            <td>${ listcartdetail.product.name }</td>
+                            <td>${ listcartdetail.product.price }</td>
+                            <td>${ listcartdetail.quantity }</td>
+                            <td>${ listcartdetail.product.price*listcartdetail.quantity }</td>
+                            <td>
+                                <a class="icon"
+                                    href="${ pageContext.request.contextPath }/admin/order/edit/${ listOrder.id }">
+                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </c:forEach>
                 </tbody>
             </table>
-            <h3 class="d-flex justify-content-end text-danger">Tổng tiền: ${ tongtien }</h3>
+            <h3 class="d-flex justify-content-end text-danger">Tổng tiền: ${ tongtien } VNĐ</h3>
+            <div class="d-flex justify-content-end">
+                <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">
+                    Thanh toán
+                </button>
+            </div>
         </div>
-
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                	<form action="${ pageContext.request.contextPath }/admin/order/create" method="POST">
+                	 <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Nhập địa chỉ</h5>
+	                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	                    </div>
+	                    <div class="modal-body">
+	                        <input name="address" type="text" class="form-control" placeholder="VD: Số 30 Nguyễn Hy Quang, Đống Đa">
+	                    </div>
+	                    <div class="modal-footer">
+	                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Đóng</button>
+	                        <button type="submit" class="btn btn-outline-success">Tạo đơn hàng</button>
+	                    </div>
+                	</form>
+                   
+                </div>
+            </div>
+        </div>
     </div>
     <footer>Dưỡng Đào</footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"

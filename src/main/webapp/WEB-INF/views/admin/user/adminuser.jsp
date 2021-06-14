@@ -35,6 +35,9 @@
 					<li class="nav-item">
 						<a class="nav-link" href="${ pageContext.request.contextPath }/admin/order/">Order</a>
 					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="${ pageContext.request.contextPath }/logout/">Đăng xuất</a>
+					</li>
 				</ul>
 			</div>
 		</div>

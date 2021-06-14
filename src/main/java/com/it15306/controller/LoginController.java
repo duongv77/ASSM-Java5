@@ -45,7 +45,7 @@ public class LoginController {
 			return "redirect:/login";
 		}
 		//lưu user đăng nhập vào session
-		request.getSession().setAttribute("userLogin", entity);
+		request.getSession().setAttribute("user", entity);
 		return "redirect:/admin/user";
 	}
 }

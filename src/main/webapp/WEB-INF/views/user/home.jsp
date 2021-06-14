@@ -21,6 +21,7 @@
                     <a href="">
                         <img width="40px" src="/css/img/avatar-post.png" alt="">
                     </a>
+                    <a href="${ pageContext.request.contextPath }/logout/" class="text-light">Đăng xuất</a>
                 </div>
                 <div class="col-4 center">
                     <div class="nav-search">
@@ -162,7 +163,7 @@
                                     <span>${dtpro.price}</span>
                                     <span1>${dtpro.price+2000000}</span1>
                                 </div>
-                                <a class="btn-add-card" href=""><i class="fa fa-cart-plus" aria-hidden="true"></i></a>
+                                <a class="btn-add-card" href="${ pageContext.request.contextPath }/home/giohang/add/${ dtpro.id }"><i class="fa fa-cart-plus" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
@@ -193,7 +194,7 @@
                                     <span>${ laptopPro.price }</span>
                                     <span1>${ laptopPro.price+3000000 }</span1>
                                 </div>
-                                <a class="btn-add-card" href=""><i class="fa fa-cart-plus" aria-hidden="true"></i></a>
+                                <a class="btn-add-card" href="${ pageContext.request.contextPath }/home/giohang/add/${ laptopPro.id }"><i class="fa fa-cart-plus" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
@@ -221,7 +222,7 @@
                                     <span>${ amthanhPro.price }</span>
                                     <span1>${ amthanhPro.price + 500000 }</span1>
                                 </div>
-                                <a class="btn-add-card" href=""><i class="fa fa-cart-plus" aria-hidden="true"></i></a>
+                                <a class="btn-add-card" href="${ pageContext.request.contextPath }/home/giohang/add/${ amthanhPro.id }"><i class="fa fa-cart-plus" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
@@ -249,7 +250,7 @@
                                     <span>${ donghoPro.price }</span>
                                     <span1>${ donghoPro.price + 500000 }</span1>
                                 </div>
-                                <a class="btn-add-card" href=""><i class="fa fa-cart-plus" aria-hidden="true"></i></a>
+                                <a class="btn-add-card" href="${ pageContext.request.contextPath }/home/giohang/add/${ donghoPro.id }"><i class="fa fa-cart-plus" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
@@ -277,7 +278,7 @@
                                     <span>${ cameraPro.price }</span>
                                     <span1>${ cameraPro.price + 2000000 }</span1>
                                 </div>
-                                <a class="btn-add-card" href=""><i class="fa fa-cart-plus" aria-hidden="true"></i></a>
+                                <a class="btn-add-card" href="${ pageContext.request.contextPath }/home/giohang/add/${ cameraPro.id }"><i class="fa fa-cart-plus" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
