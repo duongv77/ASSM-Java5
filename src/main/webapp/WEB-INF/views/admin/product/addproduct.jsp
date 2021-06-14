@@ -13,6 +13,7 @@
 	<div class="container">
         <form class="col-7"
 			method="POST"
+			enctype="multipart/form-data"
 			action="${ pageContext.request.contextPath }/admin/product/store">
 
 			<div class="form-group mt-4">

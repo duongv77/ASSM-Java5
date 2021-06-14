@@ -40,7 +40,7 @@
 						<td>${ listProduct.price }</td>
 						<td>${ listProduct.createdate }</td>
 						<td>${ listProduct.available }</td>
-						<td>${ listProduct.image }</td>
+						<td><img height="30" src="/storage/${ listProduct.image }"></td>
 						<td>${ listProduct.productype.id }</td>
 						<td>
 							<a class="icon" href="${ pageContext.request.contextPath }/admin/product/delete/${ listProduct.id }">

@@ -13,17 +13,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.it15306.dto.ProductDTO;
 import com.it15306.entity.Product;
 import com.it15306.mapper.ProductMapper;
 import com.it15306.repository.ProductRepository;
+import com.it15306.util.UploadUtil;
 
 @Controller
 @RequestMapping("/admin/product")
 public class ProductController {
 	@Autowired ProductRepository productRepo;
 	@Autowired ProductMapper mapper;
+	@Autowired
+	private UploadUtil uploadUtil;
 	
 	@GetMapping(value="/")
 	public String index(Model model) {
@@ -38,22 +43,19 @@ public class ProductController {
 	}
 	
 	@PostMapping(value="/store")
-	public String store(Model model,@Valid ProductDTO productDTO, BindingResult result) {
-		if ( result.hasErrors() ) {
-			List<ObjectError> errors = result.getAllErrors();
-			System.out.println(productDTO.getId());
-			System.out.println("true" + errors.get(0).getDefaultMessage());
-
-			model.addAttribute("errors", errors);
-			return "redirect:/admin/product/add";
-			
-		} else {
+	public String store(Model model,@RequestParam("image") MultipartFile photo,@Valid ProductDTO productDTO, BindingResult result) {
 			String time = java.time.LocalDateTime.now()+"";
 			productDTO.setCreatedate(time);
+			if(photo.getName()=="") {
+				productDTO.setImage(null);
+			}else {
+				this.uploadUtil.uploadFile(photo);
+				productDTO.setImage(photo.getOriginalFilename());
+			}
 			Product entity = mapper.convertToEntity(productDTO);
 			this.productRepo.save(entity);
 			return "redirect:/admin/product/";
-		}
+		
 		
 	}
 	

@@ -1,5 +1,7 @@
 package com.it15306.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,7 +33,7 @@ public class Cart {
 	@Column(name = "id")
 	private Integer id;
 	
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(
 			name = "user_id",
 			nullable = false,
@@ -39,6 +41,6 @@ public class Cart {
 	)
 	private User user;
 	
-	@OneToOne
-	private Cartdetail cartdetail;
+	@OneToMany
+	private List<Cartdetail> cartdetail;
 }

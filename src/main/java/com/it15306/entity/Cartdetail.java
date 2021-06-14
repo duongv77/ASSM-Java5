@@ -44,11 +44,14 @@ public class Cartdetail {
 	@Column(name = "create_date")
 	private String createdate;
 	
-	@ManyToMany
+	@OneToOne
 	@JoinColumn(
 			name = "product_id",
 			nullable = false,
 			referencedColumnName = "id"
 		)
-	private List<Product> product;
+	private Product product;
+	
+	@Column(name = "quantity")
+	private Integer quantity;
 }

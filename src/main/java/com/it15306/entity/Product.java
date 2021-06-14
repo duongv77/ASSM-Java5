@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -58,7 +59,7 @@ public class Product {
 	)
 	private Productype productype;
 	
-	@OneToMany(mappedBy = "product")
-	private List<Cartdetail> cartdetail;
+	@OneToOne(mappedBy = "product")
+	private Cartdetail cartdetail;
 	
 }

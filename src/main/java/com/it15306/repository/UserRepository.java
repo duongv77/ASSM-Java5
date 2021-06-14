@@ -11,4 +11,7 @@ import com.it15306.entity.User;
 public interface UserRepository extends JpaRepository<User, Integer> {
 	@Query("SELECT entity FROM User entity WHERE email =:email")
 	public User finByEmail(@Param("email") String email);
+	
+	@Query("SELECT entity FROM User entity WHERE id =:id")
+	public User finById(@Param("id") Integer id);
 }

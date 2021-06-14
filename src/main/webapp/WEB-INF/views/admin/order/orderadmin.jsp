@@ -26,7 +26,7 @@
 					<th scope="col">User order</th>
 					<th scope="col">Thời gian order</th>
 					<th scope="col">Địa chỉ</th>
-					<th colspan="3">Thao tác</th>
+					<th scope="col">Thao tác</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -44,11 +44,6 @@
 						<td>
 							<a class="icon" href="${ pageContext.request.contextPath }/admin/order/edit/${ listOrder.id }">
 								<i class="fa fa-pencil" aria-hidden="true"></i>
-							</a>
-						</td>
-						<td>
-							<a class="icon" href="${ pageContext.request.contextPath }/admin/order/edit/${ listOrder.id }">
-								<i class="fa fa-eye" aria-hidden="true"></i>
 							</a>
 						</td>
 					</tr>

@@ -64,7 +64,7 @@
 						<th>${ user.id }</th>
 						<td>${ user.username }</td>
 						<td>${ user.email }</td>
-						<td>${ user.photo }</td>
+						<td><img height="30" src="/storage/${ user.photo }" alt="${ user.photo }"></td>
 						<td>${ user.activated == 1? "Đang hoạt động" : "Vô hiệu hóa" }</td>
 						<td>${ user.admin == 1? "Admin" : "Member" }</td>
 						<td>

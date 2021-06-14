@@ -18,20 +18,23 @@
     <div class="container">
         <div class="row">
             <h3>Sửa địa chỉ</h3>
-            <form:form modelAttribute="orderDTO" method="POST"
-                action="${ pageContext.request.contextPath }/admin/order/update/${ productype.id }">
+            <form:form modelAttribute="order" method="POST"
+                action="${ pageContext.request.contextPath }/admin/order/update/${ order.id }">
 
                 <div class="form-group mt-3 col-7">
                     <label for="address">Địa chỉ</label>
                     <form:input path="address" cssClass="form-control" />
                     <form:errors path="address" element="span" cssClass="text-danger" />
                 </div>
-                <a href="" type="submit" class="btn btn-outline-success mt-2"> Lưu địa chỉ</a>
+                <button type="submit" class="btn btn-outline-success mt-2"> Lưu địa chỉ</button>
             </form:form>
         </div>
         <hr>
         <div class="row">
             <h3>Sửa sản phẩm</h3>
+			<div>
+				<a href="${ pageContext.request.contextPath }/admin/orderdetail/add" class="btn btn-outline-success mt-2">Thêm sản phẩm</a>
+			</div>
             <form:form modelAttribute="orderdetail" method="POST"
                 action="${ pageContext.request.contextPath }/admin/order/update/${ productype.id }">
                 <div class="form-group mt-3 col-7">
@@ -52,18 +55,18 @@
                                 <tr>
                                     <th>${ orderdetail.product.id }</th>
                                     <td>${ orderdetail.product.name }</td>
-                                    <td>${ orderdetail.product.price }</td>
+                                    <td>${ orderdetail.price }</td>
                                     <td>${ orderdetail.product.image }</td>
-                                    <td>${ orderdetail.product.productype.id }</td>
+                                    <td>${ orderdetail.product.productype.name }</td>
                                     <td>
                                         <a class="icon"
-                                            href="${ pageContext.request.contextPath }/admin/product/delete/${ listProduct.id }">
+                                            href="${ pageContext.request.contextPath }/admin/orderdetail/delete/${ orderdetail.id }">
                                             <i class="fa fa-trash" aria-hidden="true"></i>
                                         </a>
                                     </td>
                                     <td>
                                         <a class="icon"
-                                            href="${ pageContext.request.contextPath }/admin/product/delete/${ orderdetail.id }">
+                                            href="${ pageContext.request.contextPath }/admin/orderdetail/edit/${ orderdetail.id }">
                                             <i class="fa fa-pencil" aria-hidden="true"></i>
                                         </a>
                                     </td>
