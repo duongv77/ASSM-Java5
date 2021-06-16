@@ -33,7 +33,8 @@
                     <div class="row">
                         <div class="col-4 text-in-a"><a href="">SĐT: 332211</a></div>
                         <div class="col-4 text-in-a"><a href="">Tìm cửa hàng</a></div>
-                        <div class="col-4 text-in-a"><a href="${ pageContext.request.contextPath }/home/giohang/">Giỏ hàng</a></div>
+                        <div class="col-4 text-in-a"><a href="${ pageContext.request.contextPath }/home/giohang/">Giỏ
+                                hàng</a></div>
                     </div>
                 </div>
             </div>
@@ -160,12 +161,17 @@
                             <h3>${ dtpro.name }</h3>
                             <div class="price-card">
                                 <div class="price pr-3">
-                                    <span>${dtpro.price}</span>
-                                    <span1>${dtpro.price+2000000}</span1>
+                                    <span>${dtpro.price} VNĐ</span>
+                                    <span1>${dtpro.price+2000000} VNĐ</span1>
                                 </div>
-                                <a class="btn-add-card" href="${ pageContext.request.contextPath }/home/giohang/add/${ dtpro.id }"><i class="fa fa-cart-plus" aria-hidden="true"></i></a>
                             </div>
                         </div>
+                        <div class="btn-add-card">
+                            <a href="${ pageContext.request.contextPath }/home/giohang/add/${ dtpro.id }"><i
+                                    class="fa fa-cart-plus" aria-hidden="true"></i></a>
+                            <a href=""><i class="fa fa-eye" aria-hidden="true"></i></a>
+                        </div>
+
                     </div>
                 </c:forEach>
             </div>
@@ -194,7 +200,9 @@
                                     <span>${ laptopPro.price }</span>
                                     <span1>${ laptopPro.price+3000000 }</span1>
                                 </div>
-                                <a class="btn-add-card" href="${ pageContext.request.contextPath }/home/giohang/add/${ laptopPro.id }"><i class="fa fa-cart-plus" aria-hidden="true"></i></a>
+                                <a class="btn-add-card"
+                                    href="${ pageContext.request.contextPath }/home/giohang/add/${ laptopPro.id }"><i
+                                        class="fa fa-cart-plus" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
@@ -222,7 +230,9 @@
                                     <span>${ amthanhPro.price }</span>
                                     <span1>${ amthanhPro.price + 500000 }</span1>
                                 </div>
-                                <a class="btn-add-card" href="${ pageContext.request.contextPath }/home/giohang/add/${ amthanhPro.id }"><i class="fa fa-cart-plus" aria-hidden="true"></i></a>
+                                <a class="btn-add-card"
+                                    href="${ pageContext.request.contextPath }/home/giohang/add/${ amthanhPro.id }"><i
+                                        class="fa fa-cart-plus" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
@@ -250,7 +260,9 @@
                                     <span>${ donghoPro.price }</span>
                                     <span1>${ donghoPro.price + 500000 }</span1>
                                 </div>
-                                <a class="btn-add-card" href="${ pageContext.request.contextPath }/home/giohang/add/${ donghoPro.id }"><i class="fa fa-cart-plus" aria-hidden="true"></i></a>
+                                <a class="btn-add-card"
+                                    href="${ pageContext.request.contextPath }/home/giohang/add/${ donghoPro.id }"><i
+                                        class="fa fa-cart-plus" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
@@ -278,7 +290,9 @@
                                     <span>${ cameraPro.price }</span>
                                     <span1>${ cameraPro.price + 2000000 }</span1>
                                 </div>
-                                <a class="btn-add-card" href="${ pageContext.request.contextPath }/home/giohang/add/${ cameraPro.id }"><i class="fa fa-cart-plus" aria-hidden="true"></i></a>
+                                <a class="btn-add-card"
+                                    href="${ pageContext.request.contextPath }/home/giohang/add/${ cameraPro.id }"><i
+                                        class="fa fa-cart-plus" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>

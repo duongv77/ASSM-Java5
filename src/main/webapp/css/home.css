@@ -167,11 +167,35 @@ body{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     gap: 3px;
+
 }
 .col-custom:hover{
     border: 1px solid rgb(202, 202, 202);
     border-radius: 10px;
     box-shadow: 1px 1px 6px rgb(184, 184, 184);
+}
+.col-custom{
+    position: relative;
+}
+.btn-add-card{
+    position: absolute;
+    background: rgba(102, 102, 102, 0.2);
+    top: 0;left: 0;right: 0;bottom: 0;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn-add-card a{
+    font-size: 40px;
+    margin: 15px;
+    color: rgb(255, 255, 255);
+}
+.btn-add-card:hover{
+    opacity: 1;
+    border-radius: 10px;
+    color: aliceblue;
+    transition: 0.2s;
 }
 .sale{
     background: red;
@@ -190,16 +214,7 @@ body{
     padding-left: 20px;
     align-items: center;
 }
-.btn-add-card{
-    font-size: 20px;
-    margin-right: 20px;
-    color: black;
-    transition: 0.2s;
-}
-.btn-add-card:hover{
-    transform: scale(1.1);
-    color: red;
-}
+
 .produc-sale > h3{
     text-align: left;
 }

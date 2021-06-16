@@ -73,26 +73,27 @@ public class UserController {
 	}
 	
 	@PostMapping(value="/update/{id}")
-	public String update(Model model,@RequestParam("photo") MultipartFile photo, @Valid UserDTO user, BindingResult result) {
-		if ( result.hasErrors() ) {
-			List<ObjectError> errors = result.getAllErrors();
-			System.out.println(user.getId());
-			System.out.println("true" + errors.get(0).getDefaultMessage());
-
-			model.addAttribute("errors", errors);
-			return "redirect:/admin/user/edit/"+user.getId();
-			
-		} else {
+	public String update(Model model, @RequestParam("photo") MultipartFile photo,@Valid UserDTO user, BindingResult result) {
+//		if ( result.hasErrors() ) {
+//			List<ObjectError> errors = result.getAllErrors();
+//			System.out.println(user.getId());
+//			System.out.println("true" + errors.get(0).getDefaultMessage());
+//
+//			model.addAttribute("errors", errors);
+//			return "redirect:/admin/user/edit/"+user.getId();
+//			
+//		} else {
+		User userOld = this.userRepo.finById(user.getId());
 			User entity = mapper.convertToEntity(user);
-			if(photo.getName()==null) {
-				entity.setPhoto(this.userRepo.finById(entity.getId()).getPhoto());
+			if(photo.getSize()==0) {
+				entity.setPhoto(userOld.getPhoto());
 			}else {
 				this.uploadUtil.uploadFile(photo);
 				entity.setPhoto(photo.getOriginalFilename());
 			}
 			this.userRepo.save(entity);
 			return "redirect:/admin/user/";
-		}
+//		}
 	}
 	@GetMapping(value = "delete/{id}")
 	public String delete(@PathVariable("id") User entity) {
